@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Number Detector</title>
+</head>
+<style>
+    .container{
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <h1> This program can detect if a number is even or not </h1>
+        <label for="even_num">Enter Num: </label>
+        <input type="number" placeholder="Enter Num" id="even_num"> 
+        <button type="submit" id="submit">Submit</button>
+        <div id="displayNum"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('even_num'),
+              submitBtn = document.getElementById('submit'),
+              display = document.getElementById('displayNum')
+        
+        submitBtn.addEventListener('click', checkNum)
+        function checkNum(){
+            if(input.value === ''){
+                display.innerHTML = `<p>Please enter a number</p>`
+                display.style.color = 'red'
+
+            }
+            else{
+            if(input.value % 2 !== 0){
+                display.style.color = 'red'
+                display.innerHTML = `<p> ${input.value} is NOT an EVEN number. It is an ODD number</p>`
+                reloadPage()
+            }else{  
+                display.style.color = 'green' 
+                display.innerHTML = `<p> ${input.value} is an EVEN number </p>` 
+                reloadPage()
+            }
+        }
+
+            function reloadPage(){
+                setTimeout(() => {
+                    window.location.reload()
+                }, 3000)
+            }
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

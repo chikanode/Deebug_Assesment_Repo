@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Check</title>
+</head>
+<style>
+    .container{
+        text-align: center;
+    }
+
+    #displayLength{
+        margin-top:10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>This program checks number of characters in a word the user would input is even or odd </h1>
+        <label for="even_num">Enter Character: </label>
+        <input type="text" placeholder="Enter Character(s)" id="char"> 
+        <button type="submit" id="submit">Submit</button>
+        <div id="displayLength"></div>
+       
+    
+    <script>
+        
+            const characters = document.getElementById('char'),
+                  submitBtn = document.getElementById('submit'),
+                  display = document.getElementById('displayLength')
+
+            submitBtn.addEventListener('click', getCharLength)
+            function getCharLength(){
+                
+                if(characters.value === ''){
+                    display.innerHTML = `<p>Please enter a number </p>`
+                }else{
+    
+                if(characters.value.length % 2 === 0){
+                    display.innerHTML = `INPUT: ${characters.value.toUpperCase()} <br>
+                                         LENGTH: ${characters.value.length} <br>
+                                         OUTPUT: EVEN   
+                                        `
+                }else{
+                    display.innerHTML = `INPUT: ${characters.value.toUpperCase()} <br>
+                                         LENGTH: ${characters.value.length} <br>
+                                         OUTPUT: ODD   
+                                        `
+                }}
+            
+            
+            }
+            
+    </script>
+</body>
+</html>
